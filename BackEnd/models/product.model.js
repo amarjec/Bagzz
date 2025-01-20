@@ -9,6 +9,6 @@ const productSchema = mongoose.Schema({
     bgColor: { type: String, required: true},
     textColor: { type: String, required: true},
     panelColor: { type: String, required: true},  
-})
+}, {timestamp: true})
 
-module.exports = mongoose.model("Product", productSchema);
+module.exports = mongoose.model("product", productSchema);

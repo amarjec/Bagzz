@@ -1,22 +1,21 @@
 const mongoose = require('mongoose');
 
-
 const ownerSchema = mongoose.Schema({
     fullName: {
         type: String,
-        required: true,
+        // required: true,
         minlength: 3,
         trim: true,
     },
     email: {
         type: String,
-        required: true,
+        // required: true,
         unique: true,
         trim: true,
     },
     password: {
         type: String,
-        required: true,
+        // required: true,
         minlength: 8,
         trim: true,
         
@@ -33,6 +32,6 @@ const ownerSchema = mongoose.Schema({
     profile: {
         type: String,
     },
-})
+}, {timestamp: true})
 
-module.exports = mongoose.model("Owner", ownerSchema);
+module.exports = mongoose.model("owner", ownerSchema);
