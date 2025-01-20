@@ -30,7 +30,6 @@ const userSchema = mongoose.Schema({
     },
     contact: {
         type: Number,
-        required: true
     },
     profile: {
         type: String,

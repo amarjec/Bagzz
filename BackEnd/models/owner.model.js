@@ -3,19 +3,19 @@ const mongoose = require('mongoose');
 const ownerSchema = mongoose.Schema({
     fullName: {
         type: String,
-        // required: true,
+        required: true,
         minlength: 3,
         trim: true,
     },
     email: {
         type: String,
-        // required: true,
+        required: true,
         unique: true,
         trim: true,
     },
     password: {
         type: String,
-        // required: true,
+        required: true,
         minlength: 8,
         trim: true,
         
