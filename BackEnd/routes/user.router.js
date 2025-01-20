@@ -14,9 +14,9 @@ router.post("/register", async function (req, res) {
         const { fullName, email, password} = req.body;
         //validation
 
-        if(!fullName || !email || !password) {
-            return res.send({error: "All details must be required"});
-        }
+        // if(!fullName || !email || !password) {
+        //     return res.send({error: "All details must be required"});
+        // }
 
         //check if email already exists
         const existingUser = await userModel.findOne({email});
@@ -42,7 +42,7 @@ router.post("/register", async function (req, res) {
 
     } catch (error) {
         console.log(error);
-        res.status(500).send({
+        res.status(500).json({
             success: false,
             message: 'An error occurred while registering the user.',
             error
@@ -79,6 +79,10 @@ router.post("/login", async function (req, res) {
         }
         //generate token
         const token = genrateToken(user);
+        res.cookie('token', token);
+        res.status(200).json({user, token});
+
+        
         res.send({
             success: true,
             message: 'User logged in successfully.',
